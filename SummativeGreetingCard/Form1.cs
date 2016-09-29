@@ -25,9 +25,16 @@ namespace SummativeGreetingCard
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
+            Graphics formGraphics = this.CreateGraphics();
+
+            //when the screen clears, play a sound
+            SoundPlayer player = new SoundPlayer(Properties.Resources.pageturn);
+            player.Play();
+
             //erase labels
             titleLabel.Visible = false;
             subtitleLabel.Visible = false;
+            nameLabel.Visible = false;
 
             //pens and brushes
             SolidBrush starBrush = new SolidBrush(Color.White);
@@ -72,7 +79,7 @@ namespace SummativeGreetingCard
 
             formGraphics.Clear(Color.Black);
 
-            //Redraw connecting lines
+            //redraw connecting lines
             formGraphics.DrawLine(connecterPen, 155, 13, 125, 32);
             formGraphics.DrawLine(connecterPen, 225, 16, 155, 13);
             formGraphics.DrawLine(connecterPen, 259, 25, 225, 16);
@@ -88,7 +95,7 @@ namespace SummativeGreetingCard
             formGraphics.DrawLine(connecterPen, 65, 210, 50, 230);
             formGraphics.DrawLine(connecterPen, 65, 210, 66, 244);
 
-            //animate the stars
+            //make the stars grow larger
             formGraphics.FillEllipse(starBrush, 253, 25, 9, 9);
             formGraphics.FillEllipse(starBrush, 243, 35, 8, 8);
             formGraphics.FillEllipse(starBrush, 232, 50, 10, 10);
@@ -154,6 +161,7 @@ namespace SummativeGreetingCard
             formGraphics.DrawLine(connecterPen, 65, 210, 50, 230);
             formGraphics.DrawLine(connecterPen, 65, 210, 66, 244);
 
+            //shrink the stars
             formGraphics.FillEllipse(starBrush, 253, 25, 10, 10);
             formGraphics.FillEllipse(starBrush, 243, 35, 9, 9);
             formGraphics.FillEllipse(starBrush, 232, 50, 11, 11);
@@ -255,7 +263,7 @@ namespace SummativeGreetingCard
             formGraphics.DrawLine(connecterPen, 65, 210, 50, 230);
             formGraphics.DrawLine(connecterPen, 65, 210, 66, 244);
 
-            //animate the stars
+            //make the stars grow larger
             formGraphics.FillEllipse(blueBrush, 253, 25, 9, 9);
             formGraphics.FillEllipse(blueBrush, 243, 35, 8, 8);
             formGraphics.FillEllipse(blueBrush, 232, 50, 10, 10);
@@ -321,6 +329,7 @@ namespace SummativeGreetingCard
             formGraphics.DrawLine(connecterPen, 65, 210, 50, 230);
             formGraphics.DrawLine(connecterPen, 65, 210, 66, 244);
 
+            //shrink the stars
             formGraphics.FillEllipse(blueBrush, 253, 25, 10, 10);
             formGraphics.FillEllipse(blueBrush, 243, 35, 9, 9);
             formGraphics.FillEllipse(blueBrush, 232, 50, 11, 11);
@@ -422,7 +431,7 @@ namespace SummativeGreetingCard
             formGraphics.DrawLine(connecterPen, 65, 210, 50, 230);
             formGraphics.DrawLine(connecterPen, 65, 210, 66, 244);
 
-            //animate the stars
+            //make the stars grow larger
             formGraphics.FillEllipse(greenstarBrush, 253, 25, 9, 9);
             formGraphics.FillEllipse(greenstarBrush, 243, 35, 8, 8);
             formGraphics.FillEllipse(greenstarBrush, 232, 50, 10, 10);
@@ -488,6 +497,7 @@ namespace SummativeGreetingCard
             formGraphics.DrawLine(connecterPen, 65, 210, 50, 230);
             formGraphics.DrawLine(connecterPen, 65, 210, 66, 244);
 
+            //shrink the stars
             formGraphics.FillEllipse(greenstarBrush, 253, 25, 10, 10);
             formGraphics.FillEllipse(greenstarBrush, 243, 35, 9, 9);
             formGraphics.FillEllipse(greenstarBrush, 232, 50, 11, 11);
@@ -571,7 +581,7 @@ namespace SummativeGreetingCard
             formGraphics.FillEllipse(greenstarBrush, 50, 230, 5, 5);
             Thread.Sleep(500);
 
-            //Stop animation
+            //Stop animation, return stars to normal
             formGraphics.Clear(Color.Black);
 
             formGraphics.DrawLine(connecterPen, 155, 13, 125, 32);
@@ -604,6 +614,10 @@ namespace SummativeGreetingCard
             formGraphics.FillEllipse(starBrush, 30, 200, 5, 5);
             formGraphics.FillEllipse(starBrush, 50, 230, 5, 5);
             Thread.Sleep(500);
+
+            //when the text appears, play another sound
+            SoundPlayer player1 = new SoundPlayer(Properties.Resources.fireworks);
+            player.Play();
 
             // draw information about the zodiac sign
             formGraphics.DrawString("Scorpio is the eighth astrological", scriptFont, scriptBrush, 90, 170);

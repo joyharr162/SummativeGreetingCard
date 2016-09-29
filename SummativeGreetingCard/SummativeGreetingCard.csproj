@@ -83,6 +83,12 @@
   <ItemGroup>
     <None Include="Resources\Icon1.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_turn_1 %281%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fireworks.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
